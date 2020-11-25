@@ -13,7 +13,7 @@ public class Dortmund extends CoffeeBar {
         try {
             super.setBranchName("Finest Coffee @ TU-Dortmund");
             super.setLogoLocation(new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Technische_Universit%C3%A4t_Dortmund_Logo.svg/320px-Technische_Universit%C3%A4t_Dortmund_Logo.svg.png"));
-            super.setMenuLayout(MenuLayout.DropDown);
+            super.setMenuLayout(MenuLayout.Any);
 
             Database db = new Database();
             db.setDatabaseLocation(DatabaseType.JDBC.defaultLocation);

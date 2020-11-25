@@ -7,7 +7,7 @@ import com.github.javaparser.ast.CompilationUnit
 import org.combinators.cls.git.{EmptyInhabitationBatchJobResults, ResultLocation, Results}
 import org.combinators.cls.interpreter.{ReflectedRepository, combinator}
 import org.combinators.cls.types.syntax._
-import org.combinators.cls.types.{Kinding, Type, Variable}
+import org.combinators.cls.types.{Kinding, Omega, Type, Variable}
 import org.combinators.guidemo.Helpers._
 import org.combinators.guidemo.domain.{CoffeeBar, DatabaseType, MenuLayout}
 import org.combinators.templating.persistable.BundledResource
@@ -234,6 +234,7 @@ class Repository(coffeeBar: CoffeeBar) extends SemanticConcepts {
     OrderMenu(coffeeBar.getMenuLayout match {
       case MenuLayout.DropDown => FormShape.DropDown
       case MenuLayout.RadioButtons => FormShape.RadioButtons
+      case MenuLayout.Any => Omega
     })
   }
 
