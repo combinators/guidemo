@@ -5,7 +5,7 @@ lazy val commonSettings = Seq(
   version := "1.0.0-SNAPSHOT",
   organization := "org.combinators",
   
-  scalaVersion := "2.12.4",
+  scalaVersion := "2.12.13",
 
   resolvers ++= Seq(
     Resolver.sonatypeRepo("releases"),
@@ -20,14 +20,13 @@ lazy val commonSettings = Seq(
   ),
 
   libraryDependencies ++= Seq(
-    "org.combinators" %% "cls-scala" % "2.0.0+12-8d994c6b",
-    "org.combinators" %% "templating" % "1.0.0+3-bee373e9",
+    "org.combinators" %% "cls-scala" % "3.0.0",
+    "org.combinators" %% "templating" % "1.1.0",
     "org.combinators" %% "cls-scala-presentation-play-git" % "1.0.0-RC1+8-63d5cf0b",
-    "org.scalameta" %% "scalameta" % "3.4.0",
-    "org.scalameta" %% "contrib" % "3.4.0",
+    "org.scalameta" %% "scalameta" % "4.4.13",
     "com.h2database" % "h2" % "1.4.196",
-    "org.scalactic" %% "scalactic" % "3.0.1" % "test",
-    "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+    "org.scalactic" %% "scalactic" % "3.2.7" % "test",
+    "org.scalatest" %% "scalatest" % "3.2.7" % "test",
     guice
   )
 
@@ -41,7 +40,7 @@ lazy val root = (Project(id = "guidemo", base = file(".")))
   .settings(
     moduleName := "guidemo",
 
-    sourceDirectories in (Compile, TwirlKeys.compileTemplates) := Seq(
+    Compile / TwirlKeys.compileTemplates / sourceDirectories := Seq(
       sourceDirectory.value / "main" / "java-templates",
       sourceDirectory.value / "main" / "python-templates"
     ),
@@ -55,8 +54,8 @@ lazy val root = (Project(id = "guidemo", base = file(".")))
     TwirlKeys.templateImports += "com.github.javaparser.ast.stmt._",
     TwirlKeys.templateImports += "com.github.javaparser.ast.`type`._",
 
-    unmanagedResourceDirectories in Compile += sourceDirectory.value / "main" / "java",
+    Compile / unmanagedResourceDirectories += sourceDirectory.value / "main" / "java",
 
-    PlayKeys.playMonitoredFiles ++= (sourceDirectories in (Compile, TwirlKeys.compileTemplates)).value
+    PlayKeys.playMonitoredFiles ++= (Compile / TwirlKeys.compileTemplates / sourceDirectories).value
   )
 

@@ -5,20 +5,20 @@ import syntax._
 
 trait SemanticConcepts {
   object Location {
-    def apply(of: Type): Type = 'Location(of)
-    val Database: Type = 'Database
-    val Logo: Type = 'Logo
+    def apply(of: Type): Type = Constructor("Location", of)
+    val Database: Type = Constructor("Database")
+    val Logo: Type = Constructor("Logo")
   }
 
   object ChoiceDialog {
-    def apply(formShape: Type): Type = 'ChoiceDialog(formShape)
+    def apply(formShape: Type): Type = Constructor("ChoiceDialog", formShape)
   }
   object OrderMenu {
-    def apply(formShape: Type): Type = 'OrderMenu(formShape)
+    def apply(formShape: Type): Type = Constructor("OrderMenu", formShape)
   }
   object FormShape {
-    val RadioButtons: Type = 'RadioButtons
-    val DropDown: Type = 'DropDown
+    val RadioButtons: Type = Constructor("RadioButtons")
+    val DropDown: Type = Constructor("DropDown")
     val variableFormShape = Variable("alpha")
     lazy val formShapeKinding: Kinding =
       Kinding(variableFormShape)
@@ -27,10 +27,10 @@ trait SemanticConcepts {
 
 
   object BuildFile {
-    val Code: Type = 'BuildFile
-    val ExtraDependencies: Type = 'ExtraDependencies
+    val Code: Type = Constructor("BuildFile")
+    val ExtraDependencies: Type = Constructor("ExtraDependencies")
   }
 
-  val BranchName: Type = 'BranchName
-  val DatabaseAccessCode: Type = 'DatabaseAccessCode
+  val BranchName: Type = Constructor("BranchName")
+  val DatabaseAccessCode: Type = Constructor("DatabaseAccessCode")
 }

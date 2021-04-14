@@ -181,7 +181,7 @@ class Repository(coffeeBar: CoffeeBar) extends SemanticConcepts {
   object jdbcDependencies {
     def apply: Seq[scala.meta.Term] =
       q"""Seq(
-           "com.h2database" % "h2" % "1.4.196"
+           "com.h2database" % "h2" % "1.4.200"
          )""" match { case q"Seq(..$xs)" => xs }
 
     val semanticType: Type = BuildFile.ExtraDependencies

@@ -3,4 +3,4 @@ version := "1.0"
 
 libraryDependencies ++= Seq()
 
-mainClass in (Compile, run) := Some("org.combinators.guidemo.CustomerForm")
+Compile / run / mainClass := Some("org.combinators.guidemo.CustomerForm")

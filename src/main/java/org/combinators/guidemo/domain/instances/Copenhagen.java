@@ -12,7 +12,7 @@ public class Copenhagen extends CoffeeBar {
     public Copenhagen() {
         try {
             super.setBranchName("Finest Coffee @ DIKU");
-            super.setLogoLocation(new URL("https://upload.wikimedia.org/wikipedia/en/5/59/DIKU_logo.png"));
+            super.setLogoLocation(new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/DIKU_banner.png/320px-DIKU_banner.png"));
             super.setMenuLayout(MenuLayout.RadioButtons);
 
             Database db = new Database();

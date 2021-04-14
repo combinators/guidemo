@@ -2,12 +2,12 @@ package org.combinators.guidemo
 
 import java.sql._
 import javax.inject.Inject
-
 import org.combinators.guidemo.domain.DatabaseType
 import play.api.mvc.InjectedController
-import org.h2.tools.Server
+import org.h2.tools.{Server, Shell}
 import play.api.inject.ApplicationLifecycle
 
+import java.io.{BufferedReader, StringReader}
 import scala.concurrent.Future
 import scala.util.Try
 
@@ -36,6 +36,9 @@ class DataProviderController @Inject()(applicationLifecycle: ApplicationLifecycl
   }
 
   val sqlServer: Server = {
+    val shell = new Shell()
+    shell.setInReader(new BufferedReader(new StringReader("quit")))
+    shell.runTool("-url", "jdbc:h2:mem:coffee", "-user", "sa", "-password", "")
     val result = Server.createTcpServer().start()
     applicationLifecycle.addStopHook { () =>
       Future.fromTry(Try {
