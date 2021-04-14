@@ -29,7 +29,7 @@ public class Copenhagen extends AbstractModule {
     @Location(of = Locatable.Logo)
     public URL provideLogoLocation() {
         try {
-            return new URL("https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/University_of_Copenhagen_Seal.svg/174px-University_of_Copenhagen_Seal.svg.png");
+            return new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/DIKU_banner.png/320px-DIKU_banner.png");
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
