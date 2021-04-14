@@ -170,9 +170,9 @@ class Repository(coffeeBar: CoffeeBar) extends SemanticConcepts {
   object jsonDependencies {
     def apply: Seq[scala.meta.Term] =
       q"""Seq(
-            "com.fasterxml.jackson.core" % "jackson-annotations" % "2.8.8",
-            "com.fasterxml.jackson.core" % "jackson-core" % "2.8.8",
-            "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.8"
+            "com.fasterxml.jackson.core" % "jackson-annotations" % "2.12.3",
+            "com.fasterxml.jackson.core" % "jackson-core" % "2.12.3",
+            "com.fasterxml.jackson.core" % "jackson-databind" % "2.12.3"
          )""" match { case q"Seq(..$xs)" => xs }
 
     val semanticType: Type = BuildFile.ExtraDependencies
